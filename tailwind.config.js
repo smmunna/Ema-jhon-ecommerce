@@ -7,6 +7,7 @@ module.exports = {
     themes: [
       {
         mytheme: {
+          "headerBgColor":"#1C2B35",
           "primary": "#9df2a0",
           "secondary": "#36d846",
           "accent": "#ed9ac7",
