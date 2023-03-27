@@ -22,14 +22,14 @@ const ShopContainer = () => {
         <div className='shop-container p-5 lg:p-5 lg:mt-5'>
             <div className="shop-card grid grid-cols-1 md:grid-cols-3 gap-3">
                 {
-                    products.map(product => <Products
+                    products.slice(0,6).map(product => <Products
                         key={product.id}
                         product={product}
                         handleAddtoCart={handleAddtoCart}
                     />)
                 }
             </div>
-            <div className="order-summary lg:px-10 ">
+            <div className="order-summary lg:px-10 rounded ">
                 <Cart cart={cart}/>
             </div>
         </div>
