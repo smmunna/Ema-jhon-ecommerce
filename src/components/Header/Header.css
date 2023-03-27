@@ -8,7 +8,8 @@
    color: goldenrod;
 }
 
-/* Menubar */
-.menubar{
-    display: none;
+@media screen and (max-width:576px) {
+    .nav-item a{
+        padding:8px;
+    }
 }
