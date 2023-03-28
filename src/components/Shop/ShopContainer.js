@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Products from '../Products/Products';
 import './ShopContainer.css';
@@ -16,6 +17,8 @@ const ShopContainer = () => {
     const handleAddtoCart = (product) => {
         const newCart = [...cart, product];
         setCart(newCart);
+        // Setting the ID for storing into the local storage;
+        addToDb(product.id);
     }
 
     return (
