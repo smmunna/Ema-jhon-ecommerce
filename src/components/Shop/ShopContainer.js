@@ -31,6 +31,7 @@ const ShopContainer = () => {
                 addedProduct.quantity = quantity;
                 saveCart.push(addedProduct);
             }
+            console.log(saveCart)
             setCart(saveCart);
         }
     }, [products])
