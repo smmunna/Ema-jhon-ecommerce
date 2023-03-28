@@ -5,6 +5,11 @@ const Cart = (props) => {
     let total=0;
     let totalShipping =0;
     for (const product of props.cart) {
+       
+        if(product.quantity ===0){
+            product.quantity=1;
+        }
+        
         total = total+product.price;
         totalShipping = totalShipping+ product.shipping;
     }
