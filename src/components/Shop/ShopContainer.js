@@ -21,18 +21,25 @@ const ShopContainer = () => {
         addToDb(product.id);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const storedCart = getShoppingCart();
+        const saveCart = [];
         for (const id in storedCart) {
-                const addedProduct = products.find(product=>product.id===id)
-                console.log(addedProduct)
+            const addedProduct = products.find(product => product.id === id)
+            if (addedProduct) {
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                saveCart.push(addedProduct);
+            }
+            setCart(saveCart);
         }
-    },[])
+    }, [products])
+
     return (
         <div className='shop-container p-5 lg:p-5 lg:mt-5'>
             <div className="shop-card grid grid-cols-1 md:grid-cols-3 gap-3">
                 {
-                    products.slice(0,6).map(product => <Products
+                    products.slice(0, 6).map(product => <Products
                         key={product.id}
                         product={product}
                         handleAddtoCart={handleAddtoCart}
@@ -40,7 +47,7 @@ const ShopContainer = () => {
                 }
             </div>
             <div className="order-summary lg:px-10 rounded ">
-                <Cart cart={cart}/>
+                <Cart cart={cart} />
             </div>
         </div>
     );
